@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<bean id="maison" class="monprojet.personne.Maison" />
+	<bean id="cabane" class="monprojet.personne.Cabane" />
+	<bean id="chateau" class="monprojet.personne.Chateau" />
+	<bean id="velo" class="monprojet.personne.Velo" />
+	<bean id="voiture" class="monprojet.personne.Voiture" />
+	<bean id="camion" class="monprojet.personne.Camion" />
+	<bean id="thomas" class="monprojet.personne.Personne">
+		<property name="nom" value="Thomas" />
+		<property name="habitation" ref="chateau" />
+		<property name="vehicule" ref="voiture" />
+	</bean>
+</beans>

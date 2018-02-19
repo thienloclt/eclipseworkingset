@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gestion des élèves</title>
+
+<!-- Required meta tags -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<script type="text/javascript" src=""></script>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript"
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	var eleves = [ {
+		"Id" : 1,
+		"Nom" : "Nom1",
+		"Prenom" : "Prenom1",
+		"Age" : 10,
+		"Sitatuation" : "Sitatuation1"
+	}, {
+		"Id" : 2,
+		"Nom" : "Nom2",
+		"Prenom" : "Prenom2",
+		"Age" : 20,
+		"Sitatuation" : "Sitatuation2"
+	}, {
+		"Id" : 3,
+		"Nom" : "Nom3",
+		"Prenom" : "Prenom3",
+		"Age" : 30,
+		"Sitatuation" : "Sitatuation3"
+	}, {
+		"Id" : 4,
+		"Nom" : "Nom4",
+		"Prenom" : "Prenom4",
+		"Age" : 40,
+		"Sitatuation" : "Sitatuation4"
+	} ];
+
+	function addEleve(eleve) {
+		if (eleves.length) {
+			for (var i = 0; i < eleves.length; i++) {
+				var obj = eleves[i];
+				if (obj.Id == eleve.Id) {
+					alert("Exite");
+					return;
+				}
+			}
+		}
+
+		eleves.push(eleve);
+		console.log(eleves);
+
+		add1Row(eleve);
+	}
+
+	function editEleve(eleve) {
+		var idxEleves = $("#idxEleves").val();
+		var idxTable = Number(idxEleves) + 1;
+
+		eleves[idxEleves] = eleve;
+		console.log(eleves);
+
+		$("#tblEleves tr:eq(" + idxTable + ") td:eq(0)").html(eleve.Id);
+		$("#tblEleves tr:eq(" + idxTable + ") td:eq(1)").html(eleve.Nom);
+		$("#tblEleves tr:eq(" + idxTable + ") td:eq(2)").html(eleve.Prenom);
+		$("#tblEleves tr:eq(" + idxTable + ") td:eq(3)").html(eleve.Age);
+		$("#tblEleves tr:eq(" + idxTable + ") td:eq(4)").html(eleve.Sitatuation);
+	}
+
+	function submitForm() {
+		var eleve = new Object();
+		eleve.Id = Number($('#id').val());
+		eleve.Nom = $('#nom').val();
+		eleve.Prenom = $('#prenom').val();
+		eleve.Age = Number($('#age').val());
+		eleve.Sitatuation = $('#sitatuation').val();
+
+/* 		if (eleve.ID == "" || eleve.Nom == "" || eleve.Prenom == "") {
+			alert("Erreur: Identifiant ou Nom ou Prenom");
+			return;
+		} */
+
+		if ($("#idxEleves").val() < 0)
+			addEleve(eleve);
+		else
+			editEleve(eleve);
+
+		resetForm();
+		$("#formEleve").toggle();
+	}
+
+	function showEleves() {
+		if (eleves.length)
+			for (var i = 0; i < eleves.length; i++)
+				add1Row(eleves[i]);
+	}
+
+	function add1Row(obj) {
+
+		var table = $('#tblEleves');
+		var tr = $('<tr class="table-light">');
+
+		var td1 = $('<th scope="row">').html(obj.Id);
+		var td2 = $('<td>').html(obj.Nom);
+		var td3 = $('<td>').html(obj.Prenom);
+		var td4 = $('<td>').html(obj.Age);
+		var td5 = $('<td>').html(obj.Sitatuation);
+
+		var imgEdit = $('<img>').attr("src", "edit.png");
+		imgEdit.addClass("editEleve btn btn-info");
+		imgEdit.attr("data-toggle", "modal");
+		imgEdit.attr("data-target", "#exampleModal");
+		imgEdit.attr("width", "50px");
+		imgEdit.attr("height", "40px");
+
+		var imgDelete = $('<img>').attr("src", "delete.png");
+		imgDelete.addClass("deleteEleve btn btn-danger");
+		imgDelete.attr("width", "50px");
+		imgDelete.attr("height", "40px");
+
+		var td6 = $('<td>').append(imgEdit, imgDelete);
+
+		tr.append(td1, td2, td3, td4, td5, td6);
+
+		table.append(tr);
+	}
+
+	function resetForm() {
+		$("#form1")[0].reset();
+		$("#id").prop('disabled', false);
+		$("#idxEleves").val(-1);
+	}
+	
+	function closeForm() {
+		resetForm();
+	}
+
+	function loadEleve(image) {
+		var row = image.parent().parent();
+
+		var idxTable = row.index();
+		var idxEleves = idxTable - 1;
+
+		var eleve = eleves[idxEleves];
+
+		$("#id").val(eleve.Id);
+		$("#nom").val(eleve.Nom);
+		$("#prenom").val(eleve.Prenom);
+		$("#age").val(eleve.Age);
+		$("#sitatuation").val(eleve.Sitatuation);
+
+		$("#idxEleves").val(idxEleves);
+		$("#id").prop('disabled', true);
+		$("#formEleve").show();
+	}
+
+	function deleteEleve(image) {
+		var row = image.parent().parent();
+
+		var idxTable = row.index();
+		var idxEleves = idxTable - 1;
+
+		row.fadeOut(function() {
+			row.remove();
+		});
+
+		eleves.splice(idxEleves, 1);
+		console.log(eleves);
+		resetForm();
+		$("#formEleve").hide();
+
+	}
+
+	$(document).ready(function() {
+
+		$("#toggle").click(function() {
+			$("#formEleve").toggle();
+		});
+
+		$(document).on('click', '.deleteEleve', function(e) {
+			e.preventDefault();
+			deleteEleve($(this));
+		});
+
+		$(document).on('click', '.editEleve', function(e) {
+			e.preventDefault();
+			loadEleve($(this));
+		});
+
+		$("#submitForm").click(submitForm);
+
+		$("#resetForm").click(resetForm);
+		
+		$("#closeForm").click(closeForm);
+
+	});
+
+	$(window).on("load", function() {
+		console.log(eleves);
+		showEleves();
+
+		$("#formEleve").toggle();
+
+		resetForm();
+	});
+</script>
+</head>
+<body>
+	<div></div>
+	<div class="container">
+
+		<div class="bg-info text-dark rounded"
+			style="padding: 20px 20px; margin-bottom: 10px">
+			<p class="h1">Gestion d'élève</p>
+			<p class="h6">Gestion d'élèveGestion d'élève</p>
+		</div>
+		<div class="container">
+			<div
+				class="card-header"
+				style="padding: 10px;">
+				Liste des élèves</div>
+			</div>
+			<div class="row border border-secondary rounded-bottom border-top-0"
+				style="padding: 10px;">
+				<div class="col">
+					<table id="tblEleves" class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Nom</th>
+								<th scope="col">Prénom</th>
+								<th scope="col">Age</th>
+								<th scope="col">Situatation Familliale</th>
+								<th scope="col"></th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<img src="add1.png" id="toggle" class="btn btn-success"
+			data-toggle="modal" data-target="#exampleModal" width="50px"
+			height="40px" style="margin-top: 15px; margin-bottom: 15px;">
+
+	</div>
+	<div></div>
+
+	<!-- Begin Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<form action="" id="form1">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Edition de
+							l'élève</h5>
+						<button type="button" id="closeForm" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+
+						<label>Identifiant</label><br> <input type="text" id="id"><br>
+						<label style="padding-top: 10px;">Nom</label><br> <input
+							type="text" id="nom"><br> <label
+							tyle="padding-top: 10px;">Prenom</label><br> <input
+							type="text" id="prenom"><br> <label
+							style="padding-top: 10px;">Age</label><br> <input
+							type="number" id="age"><br> <label
+							style="padding-top: 10px;">Sitatuation</label><br> <input
+							type="text" id="sitatuation"> <input type="hidden"
+							id="idxEleves">
+
+					</div>
+					<div class="modal-footer">
+						<img src="submit.png" id="submitForm" class="btn btn-primary" data-dismiss="modal" width="50px" height="40px">
+						<img src="reset.png" id="resetForm" class="btn btn-warning" width="50px" height="40px">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- End Modal -->
+</body>
+</html>

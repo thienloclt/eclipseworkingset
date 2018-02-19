@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Accueil</title>
+<style type="text/css">
+#menu {
+	color: blue;
+}
+
+#table1 {
+	border: 0;
+}
+
+@font-face {
+	font-family: myfont;
+	src: url(tequilasunset.otf);
+}
+
+h1, h2, h3 {
+	font-family: myfont;
+	font-size: 40px;
+	color: yellow; 
+}
+
+img {
+	position: fixed;
+}
+</style>
+</head>
+
+<body>
+	<img alt="image du site" src="unicorn.png" />
+	<h3 id="menu">Menu</h3>
+	<dl>
+		<dt>
+			<a href="index.html">Accueil</a>
+		</dt>
+		<dt>
+			<a href="article.html">Liste des articles</a>
+		</dt>
+		<dd>
+			<a href="index.html">Par catégorie</a>
+		</dd>
+		<dd>
+			<a href="index.html">Par prix</a>
+		</dd>
+		<dt>
+			<a href="index.html">A propos</a>
+		</dt>
+		<dt>
+			<a href="index.html">Contact</a>
+		</dt>
+	</dl>
+
+
+	<br />
+	<a href="index.html">Accueil</a>
+	<b> > </b>
+	<a href="index.html">inscription</a>
+	<strong> > </strong>adjouter
+	<h1>Formulaire d'inscription</h1>
+	Ce formulaire à pour but de:
+	<ul>
+		<li>Vous inscrire</li>
+		<li>Vous permettre de recevoir les dernières offres</li>
+		<li>Rejoindre une communauté</li>
+	</ul>
+	Si vous ne souhaitez pas vous inscrire, vous pouvez revenir à
+	<a href="index.html">l'accueil</a>
+	<p>
+	<table id="table1">
+		<tr>
+			<td>Nom</td>
+			<td><input type="text" name="nom" placeholder="Entrez votre nom" /></td>
+		</tr>
+		<tr>
+			<td>Prenom</td>
+			<td><input type="text" name="prenom"
+				placeholder="Entrez votre prenom" /></td>
+		</tr>
+		<tr>
+			<td>Date de naissance</td>
+			<td><input type="date" name="dtn" /></td>
+		</tr>
+		<tr>
+			<td>Description</td>
+			<td><textarea name="description"></textarea></td>
+		</tr>
+		<tr>
+			<td>Nationalité</td>
+			<td><select name="nationalite">
+					<option>France</option>
+					<option>Maroc</option>
+			</select></td>
+		</tr>
+		<tr>
+			<td>Sex</td>
+			<td><input type="radio" name="sex" />Masculin<br /> <input
+				type="radio" name="sex" />Féminin</td>
+		</tr>
+		<tr>
+			<td>Musicque</td>
+			<td><input type="checkbox" name="rock">Rock<br /> <input
+				type="checkbox" name="pop">Pop<br /> <input type="checkbox"
+				name="rock" />Hip-hop<br /> <input type="checkbox" name="rock" />Classique</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="reset" name="reset" value="Reset" /> <input
+				type="submit" name="ok" value="OK" /></td>
+		</tr>
+	</table>
+	<p>
+</body>
+<article>
+	<footer> Copyright 2018 </footer>
+</article>
+</html>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="SULTAN-PC" name="ecommerce.test.DesTests" skipped="0" tests="2" time="0.046" timestamp="2018-01-17T13:34:06">
+  <properties>
+    <property name="java.vendor" value="Oracle Corporation" />
+    <property name="env.USERDOMAIN_ROAMINGPROFILE" value="AJC" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="env.UOIPME_REG_PATH" value="C:\Program Files\Intel Corporation\USB over IP" />
+    <property name="env.PROMPT" value="$P$G" />
+    <property name="os.name" value="Windows 7" />
+    <property name="env.FP_NO_HOST_CHECK" value="NO" />
+    <property name="sun.boot.class.path" value="C:\java\soft\jdk8\jre\lib\resources.jar;C:\java\soft\jdk8\jre\lib\rt.jar;C:\java\soft\jdk8\jre\lib\sunrsasign.jar;C:\java\soft\jdk8\jre\lib\jsse.jar;C:\java\soft\jdk8\jre\lib\jce.jar;C:\java\soft\jdk8\jre\lib\charsets.jar;C:\java\soft\jdk8\jre\lib\jfr.jar;C:\java\soft\jdk8\jre\classes" />
+    <property name="env.COMPUTERNAME" value="SULTAN-PC" />
+    <property name="env.CommonProgramW6432" value="C:\Program Files\Common Files" />
+    <property name="env.ALLUSERSPROFILE" value="C:\ProgramData" />
+    <property name="sun.desktop" value="windows" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="ant.home" value="C:\java\soft\apache-ant-1.10.1\bin\.." />
+    <property name="java.runtime.version" value="1.8.0_74-b02" />
+    <property name="env.HOMEPATH" value="\Users\e.sultan" />
+    <property name="user.name" value="e.sultan" />
+    <property name="user.language" value="fr" />
+    <property name="env.windows_tracing_flags" value="3" />
+    <property name="sun.boot.library.path" value="C:\java\soft\jdk8\jre\bin" />
+    <property name="ant.project.default-target" value="build" />
+    <property name="ant.project.name" value="ecommerce-jpa" />
+    <property name="java.version" value="1.8.0_74" />
+    <property name="env.PROCESSOR_IDENTIFIER" value="Intel64 Family 6 Model 61 Stepping 4, GenuineIntel" />
+    <property name="user.timezone" value="" />
+    <property name="env.TEMP" value="C:\Users\EE289~1.SUL\AppData\Local\Temp" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="java.endorsed.dirs" value="C:\java\soft\jdk8\jre\lib\endorsed" />
+    <property name="env._JAVACMD" value="C:\java\soft\jdk8\bin\java.exe" />
+    <property name="sun.cpu.isalist" value="amd64" />
+    <property name="env.HOMEDRIVE" value="C:" />
+    <property name="sun.jnu.encoding" value="Cp1252" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="ECLIPSE_HOME" value="../../soft/eclipse-oxygen/" />
+    <property name="file.separator" value="\" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.class.version" value="52.0" />
+    <property name="user.country" value="FR" />
+    <property name="java.home" value="C:\java\soft\jdk8\jre" />
+    <property name="env.PSModulePath" value="C:\Windows\system32\WindowsPowerShell\v1.0\Modules\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\PowerShell\Modules\;C:\Program Files\VisualSVN Server\PowerShellModules" />
+    <property name="env.APPDATA" value="C:\Users\e.sultan\AppData\Roaming" />
+    <property name="env.PUBLIC" value="C:\Users\Public" />
+    <property name="env.windows_tracing_logfile" value="C:\BVTBin\Tests\installpackage\csilogfile.log" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="env.ComSpec" value="C:\Windows\system32\cmd.exe" />
+    <property name="env.OS" value="Windows_NT" />
+    <property name="env.CommonProgramFiles" value="C:\Program Files\Common Files" />
+    <property name="ant.file" value="C:\java\workspaceOpen\ecommerce-jpa\build.xml" />
+    <property name="os.version" value="6.1" />
+    <property name="env.ProgramW6432" value="C:\Program Files" />
+    <property name="env._USE_CLASSPATH" value="no" />
+    <property name="path.separator" value=";" />
+    <property name="java.vm.version" value="25.74-b02" />
+    <property name="user.variant" value="" />
+    <property name="env.USERPROFILE" value="C:\Users\e.sultan" />
+    <property name="ant.library.dir" value="C:\java\soft\apache-ant-1.10.1\lib" />
+    <property name="junit.output.dir" value="junit" />
+    <property name="env.JAVA_HOME" value="C:\java\soft\jdk8" />
+    <property name="ant.file.ecommerce-jpa" value="C:\java\workspaceOpen\ecommerce-jpa\build.xml" />
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+    <property name="env.TMP" value="C:\Users\EE289~1.SUL\AppData\Local\Temp" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+    <property name="sun.stdout.encoding" value="cp850" />
+    <property name="user.script" value="" />
+    <property name="user.home" value="C:\Users\e.sultan" />
+    <property name="target" value="1.8" />
+    <property name="env.ProgramData" value="C:\ProgramData" />
+    <property name="ant.file.type.ecommerce-jpa" value="file" />
+    <property name="env.SESSIONNAME" value="Console" />
+    <property name="env.ProgramFiles(x86)" value="C:\Program Files (x86)" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="env.M2_HOME" value="C:\java\soft\apache-maven-3.3.9" />
+    <property name="env.NUMBER_OF_PROCESSORS" value="4" />
+    <property name="java.library.path" value="C:\java\soft\jdk8\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\java\soft\apache-ant-1.10.1\bin;C:\java\soft\apache-maven-3.3.9\bin;C:\java\soft\jdk8\bin;C:\ProgramData\Oracle\Java\javapath;C:\oraclexe\app\oracle\product\11.2.0\server\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\nodejs\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Yarn\bin;C:\Program Files\TortoiseGit\bin;C:\Program Files\Git\cmd;C:\Program Files\OpenVPN\bin;C:\Program Files\VisualSVN Server\bin;C:\Users\e.sultan\AppData\Roaming\npm;C:\Users\e.sultan\AppData\Local\Yarn\bin;C:\Users\e.sultan\AppData\Local\atom\bin;." />
+    <property name="java.vendor.url" value="http://java.oracle.com/" />
+    <property name="env.USERDNSDOMAIN" value="AJC-FORMATION.FR" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.10.1 compiled on February 2 2017" />
+    <property name="java.class.path" value="C:\java\workspaceOpen\ecommerce-jpa\bin;C:\java\workspaceOpen\ecommerce-jpa\lib\antlr-2.7.7.jar;C:\java\workspaceOpen\ecommerce-jpa\lib\classmate-1.3.0.jar;C:\java\workspaceOpen\ecommerce-jpa\lib\dom4j-1.6.1.jar;C:\java\workspaceOpen\ecommerce-jpa\lib\hibernate-commons-annotations-5.0.1.Final.jar;C:\java\workspaceOpen\ecommerce-jpa\lib\hibernate-core-5.2.12.Final.jar;C:\java\workspaceOpen\ecommerce-jpa\lib\hibernate-jpa-2.1-api-1.0.0.Final.jar;C:\java\workspaceOpen\ecommerce-jpa\lib\jandex-2.0.3.Final.jar;C:\java\workspaceOpen\ecommerce-jpa\lib\javassist-3.20.0-GA.jar;C:\java\workspaceOpen\ecommerce-jpa\lib\jboss-logging-3.3.0.Final.jar;C:\java\workspaceOpen\ecommerce-jpa\lib\jboss-transaction-api_1.2_spec-1.0.1.Final.jar;C:\java\workspaceOpen\ecommerce-jpa\lib\log4j-1.2.17.jar;C:\java\workspaceOpen\ecommerce-jpa\lib\postgresql-9.4.1212.jar;C:\java\workspaceOpen\ecommerce-jpa\lib\junit-4.12.jar;C:\java\workspaceOpen\ecommerce-jpa\lib\hamcrest-core-1.3.jar;C:\java\soft\apache-ant-1.10.1\lib\ant-launcher.jar;C:\java\soft\apache-ant-1.10.1\lib\ant.jar;C:\java\soft\apache-ant-1.10.1\lib\ant-junit.jar;C:\java\soft\apache-ant-1.10.1\lib\ant-junit4.jar" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner ecommerce.test.DesTests skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.OutErrSummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\java\workspaceOpen\ecommerce-jpa\junit\TEST-ecommerce.test.DesTests.xml crashfile=C:\java\workspaceOpen\ecommerce-jpa\junitvmwatcher4594257045016689593.properties propsfile=C:\java\workspaceOpen\ecommerce-jpa\junit3762504795346255772.properties" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="ant.file.type" value="file" />
+    <property name="env.LOGONSERVER" value="\\TRON" />
+    <property name="env.windir" value="C:\Windows" />
+    <property name="env.PROCESSOR_ARCHITECTURE" value="AMD64" />
+    <property name="java.vm.specification.version" value="1.8" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="sun.os.patch.level" value="Service Pack 1" />
+    <property name="debuglevel" value="source,lines,vars" />
+    <property name="env.ProgramFiles" value="C:\Program Files" />
+    <property name="env.ANT_HOME" value="C:\java\soft\apache-ant-1.10.1\bin\.." />
+    <property name="java.io.tmpdir" value="C:\Users\EE289~1.SUL\AppData\Local\Temp\" />
+    <property name="env.PROCESSOR_REVISION" value="3d04" />
+    <property name="env.CommonProgramFiles(x86)" value="C:\Program Files (x86)\Common Files" />
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+    <property name="env.SystemRoot" value="C:\Windows" />
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+    <property name="env.ANT_CMD_LINE_ARGS" value=" DesTests" />
+    <property name="os.arch" value="amd64" />
+    <property name="java.ext.dirs" value="C:\java\soft\jdk8\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
+    <property name="env.LOCALAPPDATA" value="C:\Users\e.sultan\AppData\Local" />
+    <property name="user.dir" value="C:\java\workspaceOpen\ecommerce-jpa" />
+    <property name="line.separator" value="&#xd;&#xa;" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="env.PATHEXT" value=".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC" />
+    <property name="env.Path" value="C:\java\soft\apache-ant-1.10.1\bin;C:\java\soft\apache-maven-3.3.9\bin;C:\java\soft\jdk8\bin;C:\ProgramData\Oracle\Java\javapath;C:\oraclexe\app\oracle\product\11.2.0\server\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\nodejs\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Yarn\bin;C:\Program Files\TortoiseGit\bin;C:\Program Files\Git\cmd;C:\Program Files\OpenVPN\bin;C:\Program Files\VisualSVN Server\bin;C:\Users\e.sultan\AppData\Roaming\npm;C:\Users\e.sultan\AppData\Local\Yarn\bin;C:\Users\e.sultan\AppData\Local\atom\bin" />
+    <property name="basedir" value="C:\java\workspaceOpen\ecommerce-jpa" />
+    <property name="env.VISUALSVN_SERVER" value="C:\Program Files\VisualSVN Server\" />
+    <property name="ant.java.version" value="1.8" />
+    <property name="ant.core.lib" value="C:\java\soft\apache-ant-1.10.1\lib\ant.jar" />
+    <property name="env.USERNAME" value="e.sultan" />
+    <property name="env.ESET_OPTIONS" value="                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               " />
+    <property name="env.SystemDrive" value="C:" />
+    <property name="source" value="1.8" />
+    <property name="sun.stderr.encoding" value="cp850" />
+    <property name="file.encoding" value="Cp1252" />
+    <property name="env.USERDOMAIN" value="AJC" />
+    <property name="java.specification.version" value="1.8" />
+    <property name="env.=C:" value="C:\java\workspaceOpen\ecommerce-jpa" />
+    <property name="ant.project.invoked-targets" value="DesTests" />
+    <property name="env.PROCESSOR_LEVEL" value="6" />
+  </properties>
+  <testcase classname="ecommerce.test.DesTests" name="testMultiplication" time="0.0" />
+  <testcase classname="ecommerce.test.DesTests" name="testAddition" time="0.0" />
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

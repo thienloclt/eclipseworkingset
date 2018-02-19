@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTML for styling</title>
+<style type="text/css">
+header {
+	background-image: url("bg.jpg");
+	background-repeat: no-repeat;
+	background-size: 90%;
+	position: relative;
+}
+
+header h1 {
+	position: relative;
+	left: 20px;
+	margin-top: 0px;
+	padding-top: 0px;
+}
+
+#left {
+	margin-top: 60px;
+	color: #000000;
+	background: linear-gradient(to right, rgba(255, 0, 0, 0),
+		rgba(255, 0, 0, 1));
+	width: 200px;
+	float: left;
+	border-radius: 20px 0px 20px 0px;
+}
+
+#right {
+	color: blue;
+	width: 100px;
+	float: right;
+}
+
+#container {
+	border: 5px solid;
+}
+
+#menu {
+	position: fixed;
+	color: maroon;
+	padding: 5px;
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-right: 50px;
+	background-color: black;
+	opacity: 0.5;
+	width: 100%;
+	border-radius: 20px 20px 0px 0px;
+	background-image: url("bg.jpg");
+	margin-left: 5px;
+	margin-right: 50px;
+	background-color: black;
+	opacity: 0.5;
+}
+</style>
+</head>
+<body>
+	<header>
+		<h1>Bienvenue sur mon site</h1>
+	</header>
+	<h1 id="menu">Typography</h1>
+	<div id="container">
+		<div id="left">Aliquam erat volutpat. Donec sagittis libero ac
+			justo suscipit laoreet. Suspendisse ut sem vel augue vulputate
+			sodales blandit sit amet metus. Quisque porta consectetur efficitur.
+			Duis venenatis nisl in mollis convallis. Pellentesque quis accumsan
+			orci. Nulla porta arcu quis laoreet sagittis. Aliquam erat volutpat.
+			Suspendisse sagittis, turpis vel posuere suscipit, dolor nunc sodales
+			est, quis cursus dui elit vel nisl.</div>
+		<div id="right">Nunc accumsan molestie nisl non malesuada. In
+			egestas tellus lectus, nec venenatis tellus pulvinar vel. Fusce
+			consectetur sodales ante, sed vehicula mauris pulvinar non. Cras
+			tempor ante nec nibh iaculis aliquet. In quis velit non dui dapibus
+			tempus quis sed velit. Morbi a ornare sem. Maecenas ornare molestie
+			ex, sed maximus lorem viverra at. In tincidunt vel purus et suscipit.
+			Aenean aliquam neque et ipsum volutpat, eu laoreet justo vestibulum.
+			Maecenas quam turpis, convallis id nibh efficitur, interdum volutpat
+			elit. Suspendisse potenti. Nulla in vulputate massa.</div>
+	</div>
+	<h1>Heading level 1</h1>
+	<hr>
+	<h2>Heading level 2</h2>
+	<h3>Heading level 3</h3>
+	<h4>Heading level 4</h4>
+	<h5>Heading level 5</h5>
+	<h6>Heading level 6</h6>
+
+	<h2>Paragraph</h2>
+	<p>
+		Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipiscing
+		elit. In id risus quis purus mollis lobortis vel ac tellus. Nam
+		pharetra lorem quis dui commodo dapibus. Curabitur aliquet sapien
+		vitae ligula pretium sollicitudin. Sed sed magna eu risus placerat
+		gravida non sit amet augue.
+	</p>
+
+	<h3>Definition list</h3>
+	<dl>
+		<dt>Definition list</dt>
+		<dd>Consectetur adipisicing elit, sed do eiusmod tempor.</dd>
+		<dt>Lorem ipsum dolor sit amet</dt>
+		<dd>Consectetur adipisicing elit, sed do eiusmod tempor.</dd>
+	</dl>
+
+</body>
+</html>

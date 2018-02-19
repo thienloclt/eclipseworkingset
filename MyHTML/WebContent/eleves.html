@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gestion des élèves</title>
+<script type="text/javascript" src="eleves.js" defer></script>
+</head>
+<body>
+			<h1>Liste des élèves</h1>
+				<table id="tabEleves">
+					<tr>
+						<th>Identifiant</th>
+						<th>Nom</th>
+						<th>Prénom</th>
+						<th>Age</th>
+						<th>Situation familliale</th>
+						<th></th>
+					</tr>
+				</table>
+			<button type="button"
+				onclick="addEleve()"> Add</button>
+		<div id="eleveForm"
+			style="visibility: hidden; margin-top: 20px">
+			<div>Edition de l'élève</div>
+				<form>
+						<label for="id">Identifiant:</label> <input type="number" id="id">
+						<label for="nom">Nom:</label> <input type="text" id="nom">
+						<label for="prenom">Prénom:</label> <input type="text" id="prenom">
+						<label for="age">Age:</label> <input type="number" id="age">
+						<label for="situationFamiliale">Situation familiale:</label> 
+						<select id="situationFamiliale">
+						</select>
+						<button type="button" onclick="saveEleve()">
+							OK
+						</button>
+						<button type="button" onclick="cancelEleve()">
+							Cancel
+						</button>
+				</form>
+			</div>
+</body>
+</html>

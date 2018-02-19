@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#wrapper {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table, th, td {
+	border: 1px solid #cdcdcd;
+	padding: 5px;
+}
+
+label {
+	font-weight: bold;
+	padding-top: 10px;
+	margin-top: 10px;
+}
+
+input {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+}
+</style>
+<script type="text/javascript">
+	var eleves = [ {
+		"Id" : 1,
+		"Nom" : "Nom1",
+		"Prenom" : "Prenom1",
+		"Age" : 10,
+		"Sitatuation" : "Sitatuation1"
+	}, {
+		"Id" : 2,
+		"Nom" : "Nom2",
+		"Prenom" : "Prenom2",
+		"Age" : 20,
+		"Sitatuation" : "Sitatuation2"
+	}, {
+		"Id" : 3,
+		"Nom" : "Nom3",
+		"Prenom" : "Prenom3",
+		"Age" : 30,
+		"Sitatuation" : "Sitatuation3"
+	}, {
+		"Id" : 4,
+		"Nom" : "Nom4",
+		"Prenom" : "Prenom4",
+		"Age" : 40,
+		"Sitatuation" : "Sitatuation4"
+	} ];
+
+	function addEleve(eleve) {
+		if (eleves.length) {
+			for (var i = 0; i < eleves.length; i++) {
+				var obj = eleves[i];
+				if (obj.Id == eleve.Id) {
+					alert("Exite");
+					return;
+				}
+			}
+		}
+
+		eleves.push(eleve);
+		console.log(eleves);
+
+		add1Row(eleve);
+		resetForm();
+	}
+
+	function editEleve(eleve) {
+		var idxArray = document.getElementById("idxArray").value;
+		var idxRow = Number(idxArray) + 1;
+
+		eleves[idxArray] = eleve;
+		console.log(eleves);
+		var row = document.getElementById("tblEleves").rows[idxRow];
+		row.cells[0].innerHTML = eleve.Id;
+		row.cells[1].innerHTML = eleve.Nom;
+		row.cells[2].innerHTML = eleve.Prenom;
+		row.cells[3].innerHTML = eleve.Age;
+		row.cells[4].innerHTML = eleve.Sitatuation;
+
+		resetForm();
+	}
+
+	function loadEleve(row) {
+		var idx = row.parentNode.parentNode.rowIndex;
+
+		var eleve = eleves[idx - 1];
+		document.getElementById("id").value = eleve.Id;
+		document.getElementById("nom").value = eleve.Nom;
+		document.getElementById("prenom").value = eleve.Prenom;
+		document.getElementById("age").value = eleve.Age;
+		document.getElementById("sitatuation").value = eleve.Sitatuation;
+
+		document.getElementById("id").disabled = true;
+		document.getElementById("idxArray").value = idx - 1;
+
+		document.getElementById("table1").style.visibility = "visible";
+	}
+
+	function deleteEleve(row) {
+		var idx = row.parentNode.parentNode.rowIndex;
+
+		eleves.splice(idx - 1, 1);
+		console.log(eleves);
+
+		document.getElementById("tblEleves").deleteRow(idx);
+
+	}
+
+	function showEleves() {
+		if (eleves.length)
+			for (var i = 0; i < eleves.length; i++)
+				add1Row(eleves[i]);
+	}
+
+	function add1Row(obj) {
+		var table = document.getElementById("tblEleves");
+		var row = table.insertRow(table.rows.length);
+		var cell0 = row.insertCell(0);
+		var cell1 = row.insertCell(1);
+		var cell2 = row.insertCell(2);
+		var cell3 = row.insertCell(3);
+		var cell4 = row.insertCell(4);
+		var cell5 = row.insertCell(5);
+
+		cell0.innerHTML = obj.Id;
+		cell1.innerHTML = obj.Nom;
+		cell2.innerHTML = obj.Prenom;
+		cell3.innerHTML = obj.Age;
+		cell4.innerHTML = obj.Sitatuation;
+		cell5.innerHTML = "<img src=\"edit.png\" width=\"30px\" height=\"30px\" onclick=\"loadEleve(this)\"><img src=\"delete.png\" width=\"30px\" height=\"30px\" onclick=\"deleteEleve(this)\">";
+
+	}
+
+	function loadBody() {
+		console.log(eleves);
+		showEleves();
+		document.getElementById("table1").style.visibility = "hidden";
+		resetForm();
+	}
+
+	function submitForm() {
+		var eleve = new Object();
+		eleve.Id = document.getElementById("id").value;
+		eleve.Nom = document.getElementById("nom").value;
+		eleve.Prenom = document.getElementById("prenom").value;
+		eleve.Age = document.getElementById("age").value;
+		eleve.Sitatuation = document.getElementById("sitatuation").value;
+
+		if (eleve.ID == "" || eleve.Nom == "" || eleve.Prenom == "") {
+			alert("Erreur: Identifiant ou Nom ou Prenom");
+			return;
+		}
+
+		if (document.getElementById("idxArray").value < 0)
+			addEleve(eleve);
+		else
+			editEleve(eleve);
+
+		document.getElementById("table1").style.visibility = "hidden";
+	}
+
+	function resetForm() {
+		document.getElementById("form1").reset();
+		document.getElementById("id").disabled = false;
+		document.getElementById("idxArray").value = -1;
+	}
+
+	function hideShowForm() {
+		if (document.getElementById("table1").style.visibility == "hidden")
+			document.getElementById("table1").style.visibility = "visible";
+		else
+			document.getElementById("table1").style.visibility = "hidden";
+	}
+</script>
+</head>
+<body onload="loadBody()">
+	<div></div>
+	<div id="wrapper">
+
+		<table>
+			<tr>
+				<td style="background-color: #c6cace;">Liste des élèves</td>
+			</tr>
+			<tr>
+				<td style="padding: 10px;">
+					<table id="tblEleves">
+						<tr style="background-color: #f2f2f2; text-align: center;">
+							<td>Identifiant</td>
+							<td>Nom</td>
+							<td>Prénom</td>
+							<td>Age</td>
+							<td>Situatation Familliale</td>
+							<td></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<form action="" id="form1">
+			<img src="add.png" width="30px" height="30px"
+				onclick="hideShowForm()"
+				style="padding-top: 10px; padding-bottom: 10px;">
+			<div id="table1">
+				<table>
+					<tr>
+						<td style="background-color: #c6cace;">Edition de l'élève</td>
+					</tr>
+					<tr>
+						<td style="padding-left: 10px;"><label>Id</label><br> <input
+							type="text" id="id"><br> <label>Nom</label><br>
+							<input type="text" id="nom"><br> <label>Prenom</label><br>
+							<input type="text" id="prenom"><br> <label>Age</label><br>
+							<input type="number" id="age"><br> <label>Sitatuation</label><br>
+							<input type="text" id="sitatuation"> <input type="hidden"
+							id="idxArray"></td>
+					</tr>
+					<tr>
+						<td align="right"><img src="submit.png" width="30px"
+							height="30px" onclick="submitForm()"> <img src="reset.png"
+							width="30px" height="30px" onclick="resetForm()"></td>
+					</tr>
+				</table>
+			</div>
+		</form>
+	</div>
+	<div></div>
+</body>
+</html>

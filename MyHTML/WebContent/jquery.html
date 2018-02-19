@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jquery.js"></script>
+<style type="text/css">
+#wrapper {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table, th, td {
+	border: 1px solid #cdcdcd;
+	padding: 5px;
+}
+
+label {
+	font-weight: bold;
+	padding-top: 10px;
+	margin-top: 10px;
+}
+
+input {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+}
+
+img {
+	height: 30px;
+	width: 30px;
+}
+</style>
+<script type="text/javascript">
+	var eleves = [ {
+		"Id" : 1,
+		"Nom" : "Nom1",
+		"Prenom" : "Prenom1",
+		"Age" : 10,
+		"Sitatuation" : "Sitatuation1"
+	}, {
+		"Id" : 2,
+		"Nom" : "Nom2",
+		"Prenom" : "Prenom2",
+		"Age" : 20,
+		"Sitatuation" : "Sitatuation2"
+	}, {
+		"Id" : 3,
+		"Nom" : "Nom3",
+		"Prenom" : "Prenom3",
+		"Age" : 30,
+		"Sitatuation" : "Sitatuation3"
+	}, {
+		"Id" : 4,
+		"Nom" : "Nom4",
+		"Prenom" : "Prenom4",
+		"Age" : 40,
+		"Sitatuation" : "Sitatuation4"
+	} ];
+
+	function addEleve(eleve) {
+		if (eleves.length) {
+			for (var i = 0; i < eleves.length; i++) {
+				var obj = eleves[i];
+				if (obj.Id == eleve.Id) {
+					alert("Exite");
+					return;
+				}
+			}
+		}
+
+		eleves.push(eleve);
+		console.log(eleves);
+
+		add1Row(eleve);
+		resetForm();
+	}
+
+	function editEleve(eleve) {
+		var idxEleves = $("#idxEleves").val();
+		var idxTable = Number(idxEleves) + 1;
+
+		eleves[idxEleves] = eleve;
+		console.log(eleves);
+
+		$("#tblEleves tr:eq(" + idxTable + ") td:eq(0)").html(eleve.Id);
+		$("#tblEleves tr:eq(" + idxTable + ") td:eq(1)").html(eleve.Nom);
+		$("#tblEleves tr:eq(" + idxTable + ") td:eq(2)").html(eleve.Prenom);
+		$("#tblEleves tr:eq(" + idxTable + ") td:eq(3)").html(eleve.Age);
+		$("#tblEleves tr:eq(" + idxTable + ") td:eq(4)")
+				.html(eleve.Sitatuation);
+	}
+
+	function submitForm() {
+		var eleve = new Object();
+		eleve.Id = $('#id').val();
+		eleve.Nom = $('#nom').val();
+		eleve.Prenom = $('#prenom').val();
+		eleve.Age = $('#age').val();
+		eleve.Sitatuation = $('#sitatuation').val();
+
+		if (eleve.ID == "" || eleve.Nom == "" || eleve.Prenom == "") {
+			alert("Erreur: Identifiant ou Nom ou Prenom");
+			return;
+		}
+
+		if ($("#idxEleves").val() < 0)
+			addEleve(eleve);
+		else
+			editEleve(eleve);
+
+		resetForm();
+		$("#formEleve").toggle();
+	}
+
+	function showEleves() {
+		if (eleves.length)
+			for (var i = 0; i < eleves.length; i++)
+				add1Row(eleves[i]);
+	}
+
+	function add1Row(obj) {
+
+		var table = $('#tblEleves');
+		var tr = $('<tr>');
+
+		var td1 = $('<td>').html(obj.Id);
+		var td2 = $('<td>').html(obj.Nom);
+		var td3 = $('<td>').html(obj.Prenom);
+		var td4 = $('<td>').html(obj.Age);
+		var td5 = $('<td>').html(obj.Sitatuation);
+
+		var imgEdit = $('<img>').attr("src", "edit.png");
+		imgEdit.attr("class", "editEleve");
+		var imgDelete = $('<img>').attr("src", "delete.png");
+		imgDelete.attr("class", "deleteEleve");
+
+		var td6 = $('<td>').append(imgEdit, imgDelete);
+
+		tr.append(td1, td2, td3, td4, td5, td6);
+
+		table.append(tr);
+	}
+
+	function resetForm() {
+		$("#form1")[0].reset();
+		$("#id").prop('disabled', false);
+		$("#idxEleves").val(-1);
+	}
+
+	$('#table a').click(function(e) {
+		e.preventDefault();
+		$('#result').val($(this).closest('tr').find('td:first').text());
+	});
+
+	function loadEleve() {
+		var idxTable = $(this).parent().parent().get(0).rowIndex;
+		var idxEleves = idxTable - 1;
+
+		var eleve = eleves[idxEleves];
+
+		$("#id").val(eleve.Id);
+		$("#nom").val(eleve.Nom);
+		$("#prenom").val(eleve.Prenom);
+		$("#age").val(eleve.Age);
+		$("#sitatuation").val(eleve.Sitatuation);
+
+		$("#idxEleves").val(idxEleves);
+		$("#id").prop('disabled', true);
+		$("#formEleve").show();
+	}
+
+	function deleteEleve() {
+		var image = $(this);
+		var row = image.parent().parent();
+
+		var idxTable = row.get(0).rowIndex;
+		var idxEleves = idxTable - 1;
+
+		row.fadeOut(function() {
+			image.remove();
+		});
+
+		eleves.splice(idxEleves, 1);
+		console.log(eleves);
+	}
+
+	$(document).ready(function() {
+
+		$("#toggle").click(function() {
+			$("#formEleve").toggle();
+		});
+
+		//$('.deleteEleve').click(deleteEleve);
+
+		$('.deleteEleve').bind('click', deleteEleve);
+
+		$('.editEleve').click(loadEleve);
+
+		$("#submitForm").click(submitForm);
+
+		$("#resetForm").click(resetForm);
+
+	});
+
+	$(window).on("load", function() {
+		console.log(eleves);
+		showEleves();
+
+		$("#formEleve").toggle();
+
+		resetForm();
+	});
+</script>
+</head>
+<body>
+	<div></div>
+	<div id="wrapper">
+
+		<table>
+			<tr>
+				<td style="background-color: #c6cace;">Liste des élèves</td>
+			</tr>
+			<tr>
+				<td style="padding: 10px;">
+					<table id="tblEleves">
+						<tr style="background-color: #f2f2f2; text-align: center;">
+							<td>Identifiant</td>
+							<td>Nom</td>
+							<td>Prénom</td>
+							<td>Age</td>
+							<td>Situatation Familliale</td>
+							<td></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<form action="" id="form1">
+			<img src="add.png" width="30px" height="30px" id="toggle"
+				style="padding-top: 10px; padding-bottom: 10px;">
+			<div id="formEleve">
+				<table>
+					<tr>
+						<td style="background-color: #c6cace;">Edition de l'élève</td>
+					</tr>
+					<tr>
+						<td style="padding-left: 10px;"><label>Id</label><br> <input
+							type="text" id="id"><br> <label>Nom</label><br>
+							<input type="text" id="nom"><br> <label>Prenom</label><br>
+							<input type="text" id="prenom"><br> <label>Age</label><br>
+							<input type="number" id="age"><br> <label>Sitatuation</label><br>
+							<input type="text" id="sitatuation"> <input type="hidden"
+							id="idxEleves"></td>
+					</tr>
+					<tr>
+						<td align="right"><img src="submit.png" id="submitForm">
+							<img src="reset.png" id="resetForm"></td>
+					</tr>
+				</table>
+			</div>
+		</form>
+	</div>
+	<div></div>
+</body>
+</html>

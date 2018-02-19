@@ -1,0 +1,11 @@
+**/.metadata/
+.metadata/**
+**/.recommenders/
+.recommenders/**
+**/target/
+target/**
+**/bin/
+bin/**
+*.class
+**/*macos*/
+*macos*/**
