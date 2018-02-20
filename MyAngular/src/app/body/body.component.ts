@@ -10,6 +10,12 @@ export class BodyComponent implements OnInit {
     return this._text1;
   }
 
+  tab = [
+    { 'id': '1', 'nom': 'nom1', 'remarque': 'remarque1'},
+    { 'id': '2', 'nom': 'nom2', 'remarque': 'remarque2'},
+    { 'id': '3', 'nom': 'nom3', 'remarque': 'remarque3'}
+  ];
+
   set text1(value: string) {
     this._text1 = value;
   }

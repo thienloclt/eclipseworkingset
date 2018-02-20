@@ -12,14 +12,14 @@
         <th scope="col">Remarque</th>
         <th scope="col">Registre</th>
         <th scope="col">Centre Equestre</th>
-          <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
       </thead>
       <tbody>
-        <tr>
-          <td><a href=""></a></td>
-          <td>{{text1}}</td>
-          <td></td>
+        <tr *ngFor ="let elem of tab">
+          <td><a href="">{{elem.id}}</a></td>
+          <td>{{elem.nom}}</td>
+          <td>{{elem.remarque}}</td>
           <td></td>
           <td></td>
             <td>
