@@ -1,0 +1,14 @@
+<tr>
+  <td><a href="">{{cheval.id}}</a></td>
+  <td>{{cheval.nom}}</td>
+  <td>{{cheval.remarque}}</td>
+  <td>
+    <!--<ul *ngFor="let e of obj.centreequestres">
+      <li>{{e.nom}}</li>
+    </ul>-->
+  </td>
+  <td>
+    <button class="btn btn-info" (click)="editCheval()"><img src='/assets/images/edit.png' width="20px" height="20px"></button>
+    <button class="btn btn-danger" (click)="deleteCheval()"><img src='/assets/images/delete.png' width="20px" height="20px"></button>
+  </td>
+</tr>

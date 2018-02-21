@@ -1,12 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
 import { BodyComponent } from './body/body.component';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component';
+import { ChevalComponent } from './cheval/cheval.component';
+import {ChevalService} from './cheval.service';
+import { AddComponent } from './add/add.component';
 
 
 @NgModule({
@@ -15,12 +21,18 @@ import { BodyComponent } from './body/body.component';
     HeaderComponent,
     FooterComponent,
     MenuComponent,
-    BodyComponent
+    BodyComponent,
+    ParentComponent,
+    ChildComponent,
+    ChevalComponent,
+    AddComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [ChevalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
