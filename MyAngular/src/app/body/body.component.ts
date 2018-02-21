@@ -11,9 +11,39 @@ export class BodyComponent implements OnInit {
   }
 
   tab = [
-    { 'id': '1', 'nom': 'nom1', 'remarque': 'remarque1'},
-    { 'id': '2', 'nom': 'nom2', 'remarque': 'remarque2'},
-    { 'id': '3', 'nom': 'nom3', 'remarque': 'remarque3'}
+    { 'id': 1,
+      'nom': 'nom1',
+      'remarque': 'remarque1',
+      'centreequestres': [
+        {
+          'id': 1,
+          'nom': 'centreequestre1'
+        },
+        {
+          'id': 3,
+          'nom': 'centreequestre3'
+        }
+      ]
+    },
+    { 'id': '2',
+      'nom': 'nom2',
+      'remarque': 'remarque2',
+      'centreequestres': [
+        {
+          'id': 2,
+          'nom': 'centreequestre2'
+        },
+        {
+          'id': 3,
+          'nom': 'centreequestre3'
+        }
+      ]
+    },
+    { 'id': '3',
+      'nom': 'nom3',
+      'remarque': 'remarque3',
+      'centreequestres': []
+    }
   ];
 
   set text1(value: string) {

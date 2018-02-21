@@ -20,7 +20,11 @@
           <td><a href="">{{elem.id}}</a></td>
           <td>{{elem.nom}}</td>
           <td>{{elem.remarque}}</td>
-          <td></td>
+          <td>
+            <ul *ngFor ="let elem1 of elem.centreequestres">
+              <li>{{elem1.nom}}</li>
+            </ul>
+          </td>
           <td></td>
             <td>
                 <button class="btn btn-info" (click)="changeText()"><img src='/assets/images/edit.png' width="20px" height="20px"></button>
@@ -31,3 +35,8 @@
     </table>
   </div>
 </div>
+https://stackoverflow.com/questions/28175381/how-to-access-json-array-object-in-html-using-angular
+https://github.com/ghidoz/angular2-jsonapi
+https://stackoverflow.com/questions/38372134/how-to-convert-an-object-to-json-correctly-in-angular-2-with-typescript/38373028
+https://stackoverflow.com/questions/41309865/angular-response-json-not-documented
+
