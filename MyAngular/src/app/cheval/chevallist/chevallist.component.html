@@ -1,7 +1,7 @@
-<div class="card">
+<!--<div class="card">
   <div class="card-header">
     Liste des chevals&nbsp;&nbsp;
-    <button class="btn btn-success"><img src="/assets/images/add.png" width="20px" height="20px"></button>
+    <a [routerLink] = "['/cheval-cheval-add']"><button class="btn btn-success"><img src="/assets/images/cheval-add.png" width="20px" height="20px"></button></a>
   </div>
   <div class="card-body" style="padding-bottom: 0;">
     <table id="tblEleves" class="table table-bordered table-hover">
@@ -15,9 +15,12 @@
       </tr>
       </thead>
       <tbody>
-        <app-child *ngFor="let cheval of chevals" [cheval]="cheval"></app-child>
+
       </tbody>
     </table>
   </div>
 </div>
-<app-add [chevalIDinput]="31"></app-add>
+-->
+<div class="card-columns" style="margin-top: 10px">
+  <app-child *ngFor="let cheval of chevals" [cheval]="cheval" (eventemitter)="getFromChild($event)"></app-child>
+ </div>

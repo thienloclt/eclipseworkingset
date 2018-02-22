@@ -1,16 +1,15 @@
-<div class="card rounded-0">
+<div class="card text-info bg-info rounded-0">
   <div class="card-header">Menu</div>
-  <div class="card-body">
-    <ul class="list-group">
-      <li class="list-group-item"><a href="">Salle de Classe</a></li>
-      <li class="list-group-item"><a href="">Professeur</a></li>
-      <li class="list-group-item"><a href="">Matiere</a></li>
-      <li class="list-group-item"><a href="">Sacem</a></li>
-      <li class="list-group-item"><a href="">Cheval</a></li>
-      <li class="list-group-item"><a href="">Centre Equestre</a></li>
-      <li class="list-group-item"><a href="">Utilisateurs</a></li>
-      <li class="list-group-item">Logged as:<br><a href="">Se déconnecter</a></li>
-      <li class="list-group-item"><a href="">S'enregistrer</a></li>
-    </ul>
-  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><a [routerLink] = "['']">Accueil</a></li>
+    <li class="list-group-item"><a href="">Salle de Classe</a></li>
+    <li class="list-group-item"><a href="">Professeur</a></li>
+    <li class="list-group-item"><a href="">Matiere</a></li>
+    <li class="list-group-item"><a href="">Sacem</a></li>
+    <li class="list-group-item"><a [routerLink] = "['/cheval']">Cheval</a> >> <a [routerLink] = "['/chevaladd']">Add</a> >> <a [routerLink] = "['/formtest']">AddTest</a></li>
+    <li class="list-group-item"><a href="">Centre Equestre</a></li>
+    <li class="list-group-item"><a href="">Utilisateurs</a></li>
+    <li class="list-group-item">Logged as:<br><a href="">Se déconnecter</a></li>
+    <li class="list-group-item"><a href="">S'enregistrer</a></li>
+  </ul>
 </div>

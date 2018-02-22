@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Cheval} from './cheval/cheval.model';
+import {Cheval} from './model/cheval.model';
 
 @Injectable()
 export class ChevalService {
@@ -19,9 +19,9 @@ export class ChevalService {
       let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
       return this.http.post(this.url, cheval,  {headers});
   }
-  update(livre: Cheval): Observable<any>{
+  update(cheval: Cheval): Observable<any>{
     let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.put(this.url, livre,  {headers})
+    return this.http.put(this.url, cheval,  {headers})
   }
   delete(id: number): Observable<any> {
       return this.http.delete(this.url + id);
