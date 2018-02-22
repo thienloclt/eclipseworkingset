@@ -1,4 +1,4 @@
-<div class="card border-info">
+<div class="card border-{{globals.theme}}" style="margin-top: 10px;">
   <div class="card-header">Edition du cheval</div>
   <div class="card-body" style="padding-bottom: 0;">
     <form [formGroup]='monform' (ngSubmit)="onSubmit()" novalidate>
@@ -15,10 +15,10 @@
       <input type="hidden" path="id" />
     </div>
     <div class="modal-footer">
-      <button type="submit" class="btn btn-info">
+      <button type="submit" class="btn btn-{{globals.theme}}">
         <img src="/assets/images/submit.png" width="20px" height="20px">
       </button>
-      <button type="reset" class="btn btn-info">
+      <button type="reset" class="btn btn-{{globals.theme}}">
         <img src="/assets/images/reset.png" width="20px" height="20px">
       </button>
     </div>

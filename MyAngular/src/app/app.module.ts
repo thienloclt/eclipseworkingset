@@ -5,15 +5,16 @@ import { HttpClientModule} from '@angular/common/http';
 import { RouterModule, Routes} from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { MenuComponent } from './menu/menu.component';
-import { ChevalListComponent } from './cheval/chevallist/chevallist.component';
-import { ChevalListChildComponent } from './cheval/chevallist-child/chevallist-child.component';
-import { ChevalService} from './cheval.service';
+import { HeaderComponent } from './framework/header/header.component';
+import { FooterComponent } from './framework/footer/footer.component';
+import { MenuComponent } from './framework/menu/menu.component';
+import { DashboardComponent } from './framework/dashboard/dashboard.component';
+import { ChevalService} from './service/cheval.service';
+import { ChevalListComponent } from './cheval/cheval-list/cheval-list.component';
+import { ChevalListChildComponent } from './cheval/cheval-list-child/cheval-list-child.component';
 import { ChevalAddComponent } from './cheval/cheval-add/cheval-add.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChevalDetailComponent } from './cheval/cheval-detail/cheval-detail.component';
+import {Globals} from './framework/globals';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -24,7 +25,6 @@ const routes: Routes = [
   {path: 'chevaladd', component: ChevalAddComponent},
   {path: 'cheval-edit/:id', component: ChevalAddComponent}
 ];
-
 
 @NgModule({
   declarations: [
@@ -45,7 +45,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     FormsModule
   ],
-  providers: [ChevalService],
+  providers: [ChevalService, Globals],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

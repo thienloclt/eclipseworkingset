@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ChevalService} from '../../cheval.service';
-import {Cheval} from '../../model/cheval.model';
+import {ChevalService} from '../../service/cheval.service';
+import {Cheval} from '../cheval.model';
+import {Globals} from '../../framework/globals';
 
 @Component({
   selector: 'app-cheval-detail',
@@ -12,7 +13,7 @@ export class ChevalDetailComponent implements OnInit {
   id: number;
   cheval: Cheval;
 
-  constructor(private route: ActivatedRoute, private chevalService: ChevalService) {
+  constructor(public globals: Globals, private route: ActivatedRoute, private chevalService: ChevalService) {
     route.params.subscribe(param => {
       this.id = param['id'];
     });

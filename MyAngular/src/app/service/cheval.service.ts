@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Cheval} from './model/cheval.model';
+import {Cheval} from '../cheval/cheval.model';
 
 @Injectable()
 export class ChevalService {

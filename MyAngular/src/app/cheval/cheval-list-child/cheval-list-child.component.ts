@@ -1,18 +1,19 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {Cheval} from '../../model/cheval.model';
-import {ChevalService} from '../../cheval.service';
+import {Cheval} from '../cheval.model';
+import {ChevalService} from '../../service/cheval.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Globals} from '../../framework/globals';
 
 @Component({
   selector: 'app-child',
-  templateUrl: './chevallist-child.component.html',
-  styleUrls: ['./chevallist-child.component.css']
+  templateUrl: './cheval-list-child.component.html',
+  styleUrls: ['./cheval-list-child.component.css']
 })
 export class ChevalListChildComponent implements OnInit {
   @Input() cheval: Cheval;
-  @Output() eventemitter : EventEmitter<string> = new EventEmitter<string>();
+  @Output() eventemitter: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(private route: ActivatedRoute, private chevalService: ChevalService, private router: Router) {
+  constructor(public globals: Globals, private route: ActivatedRoute, private chevalService: ChevalService, private router: Router) {
   }
 
   ngOnInit() {

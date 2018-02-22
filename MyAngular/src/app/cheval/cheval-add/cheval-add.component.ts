@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ChevalService} from '../../cheval.service';
-import {Cheval} from '../../model/cheval.model';
+import {ChevalService} from '../../service/cheval.service';
 import {ActivatedRoute, Router, Routes} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {Globals} from '../../framework/globals';
 
 @Component({
   selector: 'app-add',
@@ -10,25 +10,25 @@ import {FormBuilder, FormGroup} from '@angular/forms';
   styleUrls: ['./cheval-add.component.css']
 })
 export class ChevalAddComponent implements OnInit {
-  cheval = new Cheval();
   id: number;
   monform: FormGroup;
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private chevalService: ChevalService, private router: Router) {
+  constructor(public globals: Globals, private fb: FormBuilder, private route: ActivatedRoute, private chevalService: ChevalService, private router: Router) {
     route.params.subscribe(param => {
       this.id = param['id'];
     });
     this.monform = this.fb.group({
+      'id': [''],
       'nom': [''],
       'remarque': ['']
     });
   }
 
   ngOnInit() {
-    if (this.id){
+    if (this.id) {
       this.chevalService.get(this.id).subscribe(chevalFromREST => {
-        this.cheval = chevalFromREST;
-        this.monform.controls['nom'].setValue(this.cheval.nom);
-        this.monform.controls['remarque'].setValue(this.cheval.remarque);
+        this.monform.controls['id'].setValue(chevalFromREST.id);
+        this.monform.controls['nom'].setValue(chevalFromREST.nom);
+        this.monform.controls['remarque'].setValue(chevalFromREST.remarque);
       });
     }
   }

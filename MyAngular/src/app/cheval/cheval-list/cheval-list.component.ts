@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {Cheval} from '../../model/cheval.model';
-import {ChevalService} from '../../cheval.service';
+import {Cheval} from '../cheval.model';
+import {ChevalService} from '../../service/cheval.service';
 
 @Component({
   selector: 'app-chevallist',
-  templateUrl: './chevallist.component.html',
-  styleUrls: ['./chevallist.component.css']
+  templateUrl: './cheval-list.component.html',
+  styleUrls: ['./cheval-list.component.css']
 })
-export class ChevalListComponent implements OnInit{
+export class ChevalListComponent implements OnInit {
   chevals: Array<Cheval> = [];
   constructor(private chevalService: ChevalService) {}
 

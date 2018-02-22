@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Globals} from '../globals';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public globals: Globals) { }
 
   ngOnInit() {
   }
 
+  changeThemes(): void {
+    console.log('Theme: ' + this.globals.theme);
+  }
 }
