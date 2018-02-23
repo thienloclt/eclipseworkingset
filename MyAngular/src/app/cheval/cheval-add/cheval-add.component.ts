@@ -45,17 +45,16 @@ export class ChevalAddComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.monform.controls['centreEquestre']);
+    console.log('centreEquestre' + this.monform.controls['centreEquestre'].value);
+    console.log(this.monform.value)
     this.formsubmitted = true;
     if(this.monform.valid){
       if (this.id) {
-        console.log('update' + this.id);
         this.chevalService.update(this.monform.value).subscribe(val => {
           this.router.navigateByUrl('/cheval');
         });
       }
       else {
-        console.log('add');
         this.chevalService.add(this.monform.value).subscribe(val => {
           this.router.navigateByUrl('/cheval');
         });
