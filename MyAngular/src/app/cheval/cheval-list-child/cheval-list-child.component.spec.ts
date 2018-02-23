@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ChevalListChildComponent } from './cheval-list-child.component';
 
-describe('ChevalListChildComponent', () => {
+describe('UserTestListChildComponent', () => {
   let component: ChevalListChildComponent;
   let fixture: ComponentFixture<ChevalListChildComponent>;
 

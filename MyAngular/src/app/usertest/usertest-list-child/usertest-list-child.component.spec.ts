@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChevalAddComponent } from './cheval-add.component';
+import { UserTestListChildComponent } from './usertest-list-child.component';
 
-describe('UserTestAddComponent', () => {
-  let component: ChevalAddComponent;
-  let fixture: ComponentFixture<ChevalAddComponent>;
+describe('UserTestListChildComponent', () => {
+  let component: UserTestListChildComponent;
+  let fixture: ComponentFixture<UserTestListChildComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChevalAddComponent ]
+      declarations: [ UserTestListChildComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ChevalAddComponent);
+    fixture = TestBed.createComponent(UserTestListChildComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

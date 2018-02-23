@@ -2,10 +2,10 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class Globals {
-  public theme = Themes.YELLOW;
+  public theme = Themes.BLUE;
 }
 
-enum Themes {
+export enum Themes {
   RED = 'danger',
   BLUE = 'info',
   GREEN = 'success',

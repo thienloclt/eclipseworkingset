@@ -1,11 +1,11 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {Cheval} from '../cheval.model';
-import {ChevalService} from '../../service/cheval.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Globals} from '../../framework/globals';
+import {Cheval} from '../../model/cheval.model';
+import {ChevalService} from '../../service/cheval.service';
 
 @Component({
-  selector: 'app-child',
+  selector: 'app-cheval-list-child',
   templateUrl: './cheval-list-child.component.html',
   styleUrls: ['./cheval-list-child.component.css']
 })

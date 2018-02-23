@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ChevalService} from '../../service/cheval.service';
-import {Cheval} from '../cheval.model';
 import {Globals} from '../../framework/globals';
+import {ChevalService} from '../../service/cheval.service';
+import {Cheval} from '../../model/cheval.model';
 
 @Component({
   selector: 'app-cheval-detail',

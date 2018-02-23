@@ -9,21 +9,30 @@ import { HeaderComponent } from './framework/header/header.component';
 import { FooterComponent } from './framework/footer/footer.component';
 import { MenuComponent } from './framework/menu/menu.component';
 import { DashboardComponent } from './framework/dashboard/dashboard.component';
-import { ChevalService} from './service/cheval.service';
 import { ChevalListComponent } from './cheval/cheval-list/cheval-list.component';
 import { ChevalListChildComponent } from './cheval/cheval-list-child/cheval-list-child.component';
 import { ChevalAddComponent } from './cheval/cheval-add/cheval-add.component';
 import { ChevalDetailComponent } from './cheval/cheval-detail/cheval-detail.component';
 import {Globals} from './framework/globals';
+import {ChevalService} from './service/cheval.service';
+import {CentreEquestreService} from './service/centreequestre.service';
+import {UserTestService} from './service/usertest.service';
+import {UserTestListComponent} from './usertest/usertest-list/usertest-list.component';
+import {UserTestListChildComponent} from './usertest/usertest-list-child/usertest-list-child.component';
+import {UserTestAddComponent} from './usertest/usertest-add/usertest-add.component';
+import {UserTestDetailComponent} from './usertest/usertest-detail/usertest-detail.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: DashboardComponent},
-  {path: 'formtest', component: ChevalAddComponent},
   {path: 'cheval', component: ChevalListComponent},
   {path: 'cheval/:id', component: ChevalDetailComponent},
-  {path: 'chevaladd', component: ChevalAddComponent},
-  {path: 'cheval-edit/:id', component: ChevalAddComponent}
+  {path: 'cheval-add', component: ChevalAddComponent},
+  {path: 'cheval-edit/:id', component: ChevalAddComponent},
+  {path: 'usertest', component: UserTestListComponent},
+  {path: 'usertest/:id', component: UserTestDetailComponent},
+  {path: 'usertest-add', component: UserTestAddComponent},
+  {path: 'usertest-edit/:id', component: UserTestAddComponent}
 ];
 
 @NgModule({
@@ -36,7 +45,11 @@ const routes: Routes = [
     ChevalListComponent,
     ChevalListChildComponent,
     ChevalAddComponent,
-    ChevalDetailComponent
+    ChevalDetailComponent,
+    UserTestListComponent,
+    UserTestListChildComponent,
+    UserTestAddComponent,
+    UserTestDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +58,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     FormsModule
   ],
-  providers: [ChevalService, Globals],
+  providers: [Globals, ChevalService, CentreEquestreService, UserTestService],
   bootstrap: [AppComponent]
 })
 

@@ -1,6 +1,16 @@
 <div class="card border-{{globals.theme}}" style="margin-top: 10px;">
   <div class="card-header">Edition du cheval</div>
   <div class="card-body" style="padding-bottom: 0;">
+    <!--Begin Error Message-->
+    <div *ngIf="!monform.valid && formsubmitted" class="ui error message">
+      <div class="alert alert-secondary" role="alert">
+        <div *ngIf="!monform.controls['nom'].valid " class="ui error message">nom is invalid</div>
+        <div *ngIf="monform.controls['nom'].hasError('required')" class="ui error message">nom is required</div>
+        <div *ngIf="!monform.controls['remarque'].valid" class="ui error message">remarque is invalid</div>
+        <div *ngIf="monform.controls['remarque'].hasError('required')" class="ui error message">remarque required</div>
+      </div>
+    </div>
+    <!--End Error Message-->
     <form [formGroup]='monform' (ngSubmit)="onSubmit()" novalidate>
       <input formControlName="id" type="hidden" class="form-control"/>
     <div class="modal-body" style="padding-top: 0;">
@@ -12,6 +22,18 @@
         <label>Remarque *</label>
         <input formControlName="remarque" class="form-control"/>
       </div>
+
+      <div *ngIf="centreequestres?.length > 0; else nothing;">
+        <div class="form-group">
+          <label>Centre Equestre: *</label>
+          <select formControlName="centreEquestre" class="form-control">
+            <option *ngFor="let a of centreequestres" [ngValue]="a.id">{{a.nom}}</option>
+          </select>
+        </div>
+
+      </div>
+      <ng-template #nothing>Il n'y a plus d'auteurs dans la liste</ng-template>
+
       <input type="hidden" path="id" />
     </div>
     <div class="modal-footer">

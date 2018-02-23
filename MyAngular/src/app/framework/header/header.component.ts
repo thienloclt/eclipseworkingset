@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Globals} from '../globals';
+import {Globals, Themes} from '../globals';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +7,13 @@ import {Globals} from '../globals';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  color: Themes = Themes.BLUE;
   constructor(public globals: Globals) { }
 
   ngOnInit() {
   }
 
   changeThemes(): void {
-    console.log('Theme: ' + this.globals.theme);
+    this.globals.theme = this.color;
   }
 }
