@@ -5,6 +5,7 @@ import {Globals} from '../../framework/globals';
 import {CentreEquestreService} from '../../service/centreequestre.service';
 import {ChevalService} from '../../service/cheval.service';
 import {CentreEquestre} from '../../model/centreequestre.model';
+import {Cheval} from '../../model/cheval.model';
 
 @Component({
   selector: 'app-cheval-add',
@@ -13,52 +14,95 @@ import {CentreEquestre} from '../../model/centreequestre.model';
 })
 export class ChevalAddComponent implements OnInit {
   id: number;
-  monform: FormGroup;
+  myForm: FormGroup;
   formsubmitted: boolean = false;
   centreequestres: Array<CentreEquestre> = [];
-  authorsSelected: CentreEquestre[] = [];
+  centreequestreSelected: CentreEquestre;
+  centreequestresSelected: Array<CentreEquestre> = [];
 
   constructor(public globals: Globals, private fb: FormBuilder, private route: ActivatedRoute, private router: Router,
               private chevalService: ChevalService, private centreequestreService: CentreEquestreService) {
-    route.params.subscribe(param => {
+
+    console.log('11111111111');
+    this.route.params.subscribe(param => {
       this.id = param['id'];
     });
+
     this.centreequestreService.list().subscribe(centreequestresFromREST => {
       this.centreequestres = centreequestresFromREST;
+
+      console.log(this.centreequestresSelected.length);
+      this.centreequestresSelected.push(this.centreequestres[0]);
+      this.centreequestresSelected.push(this.centreequestres[1]);
+
+      console.log(this.centreequestresSelected.length);
+      for (let i = 0; i < this.centreequestresSelected.length; i++) {
+        console.log(this.centreequestresSelected[i].nom);
+      }
     });
-    this.monform = this.fb.group({
+
+    this.myForm = this.fb.group({
       'id': [''],
       'nom': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       'remarque': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
-      'centreEquestre': [this.authorsSelected]
+      'centreEquestre': ['']
     });
+
   }
 
   ngOnInit() {
+    console.log('2222222222');
     if (this.id) {
       this.chevalService.get(this.id).subscribe(chevalFromREST => {
-        this.monform.controls['id'].setValue(chevalFromREST.id);
-        this.monform.controls['nom'].setValue(chevalFromREST.nom);
-        this.monform.controls['remarque'].setValue(chevalFromREST.remarque);
+        this.myForm.controls['id'].setValue(chevalFromREST.id);
+        this.myForm.controls['nom'].setValue(chevalFromREST.nom);
+        this.myForm.controls['remarque'].setValue(chevalFromREST.remarque);
+        this.myForm.controls['centreEquestre'].setValue(chevalFromREST.centreEquestre);
+
+        this.centreequestreSelected = chevalFromREST.centreEquestre;
+
+        //console.log('**************************');
+        //console.log(this.centreequestreSelected.nom);
+        //this.centreequestresSelected[0] = (this.centreequestreSelected);
+        //this.centreequestresSelected.push(this.centreequestres[0]);
+
       });
     }
   }
 
   onSubmit() {
-    console.log('centreEquestre' + this.monform.controls['centreEquestre'].value);
-    console.log(this.monform.value)
     this.formsubmitted = true;
-    if(this.monform.valid){
+
+    if (this.myForm.valid) {
+      let cheval: Cheval;
+      cheval  = this.myForm.value;
+
+      let centreEquestres: CentreEquestre[];
+      centreEquestres = this.myForm.controls['centreEquestre'].value;
+      for (let i = 0; i < centreEquestres.length; i++) {
+      }
+
+      //     let centreEquestres: CentreEquestre[];
+ //     centreEquestres = this.centreequestres.filter(value => value.id === parseInt(this.myForm.controls['centreEquestre'].value));
+ //     cheval.centreEquestre = centreEquestres[0];
+
+      cheval.centreEquestre = this.myForm.controls['centreEquestre'].value;
+/*
       if (this.id) {
-        this.chevalService.update(this.monform.value).subscribe(val => {
+        this.chevalService.update(cheval).subscribe(val => {
           this.router.navigateByUrl('/cheval');
         });
-      }
-      else {
-        this.chevalService.add(this.monform.value).subscribe(val => {
+      } else {
+        this.chevalService.add(this.myForm.value).subscribe(val => {
           this.router.navigateByUrl('/cheval');
         });
-      }
+      }*/
     }
+  }
+
+  equalsCentreEquestre(o1: CentreEquestre, o2: CentreEquestre) {
+    if (o1 == null || o2 == null)
+      return false;
+    return o1.id === o2.id;
   }
 }

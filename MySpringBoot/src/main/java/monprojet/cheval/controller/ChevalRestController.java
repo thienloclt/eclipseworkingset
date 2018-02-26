@@ -37,12 +37,14 @@ public class ChevalRestController {
 	}
 
 	@GetMapping("/{id}")
+	@JsonView(View.ChevalWithCentreEquestre.class)
 	public ResponseEntity<Cheval> findById(@PathVariable("id") Long id) {
 		Cheval cheval = chevalDao.find(id);
 		return new ResponseEntity<Cheval>(cheval, (cheval != null) ? HttpStatus.OK : HttpStatus.NOT_FOUND);
 	}
 
 	@DeleteMapping("/{id}")
+	@JsonView(View.ChevalWithCentreEquestre.class)
 	public ResponseEntity<Cheval> deleteCheval(@PathVariable("id") Long id) {
 		Cheval cheval = chevalDao.find(id);
 		if (cheval == null)
@@ -53,6 +55,7 @@ public class ChevalRestController {
 	}
 	
 	@PostMapping("")
+	@JsonView(View.ChevalWithCentreEquestre.class)
 	public ResponseEntity<Cheval> createCheval(@RequestBody Cheval cheval) {
 		if(cheval.getId() != null)
 			return new ResponseEntity<Cheval>(cheval, HttpStatus.BAD_REQUEST);
@@ -61,6 +64,7 @@ public class ChevalRestController {
 	}
 	
 	@PutMapping("")
+	@JsonView(View.ChevalWithCentreEquestre.class)
 	public ResponseEntity<Cheval> updateCheval(@RequestBody Cheval cheval) {
 		Cheval chevalFind = chevalDao.find(cheval.getId());
 		if (chevalFind != null) {

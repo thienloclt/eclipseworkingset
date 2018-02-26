@@ -25,7 +25,6 @@ export class ChevalListComponent implements OnInit, OnChanges {
   getList() {
     this.chevalService.list().subscribe(chevalsFromREST => {
       this.chevals = chevalsFromREST;
-      console.log(this.chevals);
     });
   }
 }

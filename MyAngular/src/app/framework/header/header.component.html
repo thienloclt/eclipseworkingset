@@ -4,7 +4,7 @@
     <p class="h6">Slogan</p>
   </div>
   <div class="float-right" style="padding-right: 10px; padding-top: 10px;">
-    <select [(ngModel)]="color" (change)="changeThemes()" name="Theme">
+    <select [(ngModel)]="color" (ngModelChange)="changeThemes($event)" name="Theme">
       <option value="danger">Red</option>
       <option value="info">Blue</option>
       <option value="success">Green</option>

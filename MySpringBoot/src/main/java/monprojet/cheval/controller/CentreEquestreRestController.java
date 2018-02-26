@@ -37,12 +37,14 @@ public class CentreEquestreRestController {
 	}
 
 	@GetMapping("/{id}")
+	@JsonView(View.CentreEquestreWithCheval.class)
 	public ResponseEntity<CentreEquestre> findById(@PathVariable("id") Long id) {
 		CentreEquestre centreEquestre = centreEquestreDao.find(id);
 		return new ResponseEntity<CentreEquestre>(centreEquestre, (centreEquestre != null) ? HttpStatus.OK : HttpStatus.NOT_FOUND);
 	}
 
 	@DeleteMapping("/{id}")
+	@JsonView(View.CentreEquestreWithCheval.class)
 	public ResponseEntity<CentreEquestre> deleteCentreEquestre(@PathVariable("id") Long id) {
 		CentreEquestre centreEquestre = centreEquestreDao.find(id);
 		if (centreEquestre == null)
@@ -53,6 +55,7 @@ public class CentreEquestreRestController {
 	}
 
 	@PostMapping("")
+	@JsonView(View.CentreEquestreWithCheval.class)
 	public ResponseEntity<CentreEquestre> createCentreEquestre(@RequestBody CentreEquestre centreEquestre) {
 		if (centreEquestre.getId() != null)
 			return new ResponseEntity<CentreEquestre>(centreEquestre, HttpStatus.BAD_REQUEST);
@@ -61,6 +64,7 @@ public class CentreEquestreRestController {
 	}
 
 	@PutMapping("")
+	@JsonView(View.CentreEquestreWithCheval.class)
 	public ResponseEntity<CentreEquestre> updateCentreEquestre(@RequestBody CentreEquestre centreEquestre) {
 		CentreEquestre centreEquestreFind = centreEquestreDao.find(centreEquestre.getId());
 		if (centreEquestreFind != null) {

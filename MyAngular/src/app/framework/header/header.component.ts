@@ -7,13 +7,14 @@ import {Globals, Themes} from '../globals';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  color: Themes = Themes.BLUE;
+  color: Themes = Themes.GREEN;
+
   constructor(public globals: Globals) { }
 
   ngOnInit() {
   }
 
-  changeThemes(): void {
-    this.globals.theme = this.color;
+  changeThemes(theme: Themes): void {
+    this.globals.theme = theme;
   }
 }
